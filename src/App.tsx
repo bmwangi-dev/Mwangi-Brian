@@ -236,7 +236,7 @@ function App() {
                 <p className="text-gray mb-10">
                   My experience ranges from leading technical innovations as CTO at Sigma Africa to driving impactful blockchain projects like "Lido Impact" at Lido Nation. I thrive on problem-solving and am committed to continuous learning, always striving to leverage technology to drive impactful solutions.
                 </p>
-                <a href="/assets/mwangibriancv.pdf" download="Brian_Mwangi_CV.pdf">
+                <a href="/assets/MwangiBrianCV.pdf" download="Brian_Mwangi_CV.pdf">
                   <button className="border border-primary text-primary px-4 py-2 hover:bg-primary/10 transition-colors cursor-pointer">
                     Download CV
                   </button>

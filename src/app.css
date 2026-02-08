@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/* Define Gilroy font faces - Files must be added to public/fonts/Gilroy/ */
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-UltraLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy/Radomir Tinkov - Gilroy-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    /* Font families */
+    --font-gilroy: 'Gilroy', 'Inter', system-ui, sans-serif;
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-sans: 'Gilroy', 'Inter', system-ui, sans-serif;
+
+    /* Custom font sizes */
+    --text-xxxs: 0.5rem;
+    --text-xxs: 0.625rem;
+    --text-2.2xl: 1.375rem;
+    --text-3.2xl: 2rem;
+
+    /* Custom spacing values */
+    --spacing-4.5: 1.125rem;
+    --spacing-17: 4.5rem;
+    --spacing-18: 4.75rem;
+    --spacing-19: 5rem;
+    --spacing-21: 5.25rem;
+    --spacing-22: 5.5rem;
+    --spacing-23: 5.75rem;
+    --spacing-25: 6.25rem;
+
+    /* Project Colors from Screenshot */
+    --color-primary: #fd802e;
+    --color-gray: #ABB2BF;
+    --color-background: #282C33;
+    --color-white: #FFFFFF;
+
+    /* Semantic Colors */
+    --color-border: #ABB2BF;
+    --color-surface: #282C33;
+}
+
+.repeating-bg-lines {
+    background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255, 255, 255, 0.05) 3px, rgba(255, 255, 255, 0.05) 5px);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #fd802e 0%, #ABB2BF 100%);
+}
+
+.section-container {
+    @apply mx-auto px-4 sm:px-8 md:px-16 lg:px-40;
+}
+
+.wave-inner-right,
+.wave-inner-left {
+    animation: pulse 2s infinite;
+}
+
+.wave-outer-right,
+.wave-outer-left {
+    animation: pulse 2s infinite 0.25s;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.odometer.odometer-auto-theme,
+.odometer.odometer-theme-default {
+    font-family: var(--font-gilroy) !important;
+}
+
+.mask-icon {
+    background-color: var(--color-primary);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}

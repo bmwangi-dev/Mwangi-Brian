@@ -1,39 +1,87 @@
+import { useState } from 'react';
+
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-white font-gilroy">
       {/* Navigation Demo */}
-      <nav className="border-b border-border/20 py-4">
+      <nav className="border-b border-border/20 py-4 sticky top-0 bg-background/80 backdrop-blur-md z-50">
         <div className="section-container flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <img src="/assets/mwangi_logo.png" alt="Mwangi Logo" className="h-12 md:h-16 w-auto" />
+            <img src="/assets/mwangi_logo.png" alt="Mwangi Logo" className="h-10 md:h-16 w-auto" />
           </div>
-          <ul className="flex gap-8 text-gray font-medium">
+
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex gap-8 text-gray font-medium">
             <li><a href="#home" className="text-white hover:text-primary transition-colors">#home</a></li>
             <li><a href="#works" className="hover:text-primary transition-colors">#works</a></li>
             <li><a href="#skills" className="hover:text-primary transition-colors">#skills</a></li>
             <li><a href="#about-me" className="hover:text-primary transition-colors">#about-me</a></li>
             <li><a href="#contacts" className="hover:text-primary transition-colors">#contacts</a></li>
           </ul>
+
+          {/* Mobile Menu Icon */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 z-50 p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <div className={`h-0.5 w-6 bg-gray transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`} />
+            <div className={`h-0.5 w-6 bg-gray transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <div className={`h-0.5 w-6 bg-gray transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`} />
+          </button>
         </div>
       </nav>
 
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-x-0 top-[73px] bg-[#282C33] z-40 transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'} md:hidden border-b border-border/10 shadow-2xl`}>
+        <div className="flex flex-col p-8 section-container">
+          <ul className="flex flex-col gap-6 text-2xl font-medium mb-12 text-center">
+            <li><a href="#home" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-primary transition-colors block"><span className="text-primary">#</span>home</a></li>
+            <li><a href="#works" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>works</a></li>
+            <li><a href="#skills" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>skills</a></li>
+            <li><a href="#about-me" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>about-me</a></li>
+            <li><a href="#contacts" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>contacts</a></li>
+          </ul>
+
+          {/* Mobile Socials */}
+          <div className="flex justify-center gap-8 pt-8 border-t border-border/10">
+            {[
+              { id: 'Github', href: 'https://github.com/bmwangi-dev' },
+              { id: 'Email', href: 'mailto:wambuimwangibrian@gmail.com' },
+              { id: 'Linkedin', href: 'https://www.linkedin.com/in/mwangi-brian-68732527b/' }
+            ].map((social) => (
+              <a key={social.id} href={social.href} target="_blank" rel="noopener noreferrer">
+                <div
+                  className="mask-icon h-8 w-8 bg-gray hover:bg-primary transition-colors"
+                  style={{
+                    maskImage: `url(/assets/${social.id}.svg)`,
+                    WebkitMaskImage: `url(/assets/${social.id}.svg)`
+                  }}
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <main>
         {/* Hero Section Demo */}
-        <section id="home" className="pt-8 pb-12">
-          <div className="section-container grid md:grid-cols-2 gap-12">
-            <div className="pt-12 md:pt-24">
-              <h1 className="text-3.2xl md:text-5xl font-bold leading-tight mb-8">
+        <section id="home" className="pt-4 md:pt-8 pb-12">
+          <div className="section-container grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="pt-4 md:pt-24 order-2 md:order-1 text-center md:text-left">
+              <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6 md:mb-8">
                 Brian is a <span className="text-primary">Software Engineer</span> and <span className="text-primary">Full-Stack developer</span>
               </h1>
-              <p className="text-gray mb-10 max-w-md">
+              <p className="text-gray mb-8 md:mb-10 max-w-md mx-auto md:mx-0">
                 He crafts responsive websites where technologies meet creativity
               </p>
               <button className="border border-primary text-primary px-4 py-2 hover:bg-primary/10 transition-colors">
                 <a href="#contacts">Contact me!</a>
               </button>
             </div>
-            <div className="relative">
-              <div className="w-full aspect-[4/5] md:h-[500px] bg-gray/10 border border-border/20 repeating-bg-lines overflow-hidden">
+            <div className="relative order-1 md:order-2">
+              <div className="w-full aspect-square md:aspect-[4/5] md:h-[500px] bg-gray/10 border border-border/20 repeating-bg-lines overflow-hidden">
                 <img
                   src="/assets/mwangi1.jpg"
                   alt="Brian Mwangi"
@@ -76,7 +124,7 @@ function App() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   name: "Sigma Africa Accelerate",
@@ -176,7 +224,7 @@ function App() {
               </div>
 
               {/* Skill Categories */}
-              <div className="flex-1 flex flex-wrap gap-4 items-start pt-4">
+              <div className="flex-1 flex flex-wrap gap-4 items-start pt-4 justify-center md:justify-start w-full">
                 <div className="border border-border/20 w-full sm:w-48">
                   <div className="p-2 border-b border-border/20 font-bold">Languages</div>
                   <div className="p-2 text-gray flex flex-wrap gap-x-4 gap-y-1">
@@ -227,22 +275,24 @@ function App() {
               <div className="h-[1px] bg-primary w-1/3"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-gray mb-6 font-bold text-lg">Hello, I’m Brian!</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="text-center md:text-left order-2 md:order-1">
+                <p className="text-gray mb-4 md:mb-6 font-bold text-lg">Hello, I’m Brian!</p>
                 <p className="text-gray mb-6">
                   I’m a passionate and result-driven Software Engineer based in Nairobi, Kenya. With a strong foundation in full-stack development and a certification from Moringa School, I specialize in crafting efficient, scalable solutions that meet modern web standards.
                 </p>
                 <p className="text-gray mb-10">
                   My experience ranges from leading technical innovations as CTO at Sigma Africa to driving impactful blockchain projects like "Lido Impact" at Lido Nation. I thrive on problem-solving and am committed to continuous learning, always striving to leverage technology to drive impactful solutions.
                 </p>
-                <a href="/assets/MwangiBrianCV.pdf" download="Brian_Mwangi_CV.pdf">
-                  <button className="border border-primary text-primary px-4 py-2 hover:bg-primary/10 transition-colors cursor-pointer">
-                    Download CV
-                  </button>
-                </a>
+                <div className="flex justify-center md:justify-start">
+                  <a href="/assets/MwangiBrianCV.pdf" download="Brian_Mwangi_CV.pdf">
+                    <button className="border border-primary text-primary px-4 py-2 hover:bg-primary/10 transition-colors cursor-pointer">
+                      Download CV
+                    </button>
+                  </a>
+                </div>
               </div>
-              <div className="relative">
+              <div className="relative order-1 md:order-2">
                 {/* Decorative Dots */}
                 <div className="absolute top-12 left-0 grid grid-cols-5 gap-4 z-10">
                   {[...Array(25)].map((_, i) => (
@@ -255,7 +305,7 @@ function App() {
                   ))}
                 </div>
 
-                <div className="w-full aspect-[4/5] md:h-[500px] bg-gray/10 border border-border/20 repeating-bg-lines overflow-hidden">
+                <div className="w-full aspect-square md:aspect-[4/5] md:h-[500px] bg-gray/10 border border-border/20 repeating-bg-lines overflow-hidden">
                   <img
                     src="/assets/mwangi2.jpg"
                     alt="Brian Mwangi"
@@ -284,12 +334,12 @@ function App() {
                   I’m interested in freelance opportunities. However, if you have other request or question, don’t hesitate to contact me
                 </p>
               </div>
-              <div className="flex md:justify-end">
-                <div className="border border-border/20 p-4 min-w-[250px]">
-                  <h3 className="font-bold mb-4">Lets Connect</h3>
+              <div className="flex flex-col md:flex-row md:justify-end w-full">
+                <div className="border border-border/20 p-4 w-full md:w-auto md:min-w-[250px]">
+                  <h3 className="font-bold mb-4 text-center md:text-left">Lets Connect</h3>
                   <div className="flex flex-col gap-2">
-                    <div className="md:text-right">
-                      <div className="flex md:justify-end gap-6 pt-2">
+                    <div className="text-center md:text-right">
+                      <div className="flex justify-center md:justify-end gap-6 pt-2">
                         {[
                           { id: 'Github', href: 'https://github.com/bmwangi-dev' },
                           { id: 'Email', href: 'mailto:wambuimwangibrian@gmail.com' },

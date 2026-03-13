@@ -16,6 +16,7 @@ function App() {
           <ul className="hidden md:flex gap-8 text-gray font-medium">
             <li><a href="#home" className="text-white hover:text-primary transition-colors">#home</a></li>
             <li><a href="#works" className="hover:text-primary transition-colors">#works</a></li>
+            <li><a href="#experience" className="hover:text-primary transition-colors">#experience</a></li>
             <li><a href="#skills" className="hover:text-primary transition-colors">#skills</a></li>
             <li><a href="#about-me" className="hover:text-primary transition-colors">#about-me</a></li>
             <li><a href="#contacts" className="hover:text-primary transition-colors">#contacts</a></li>
@@ -39,6 +40,7 @@ function App() {
           <ul className="flex flex-col gap-6 text-2xl font-medium mb-12 text-center">
             <li><a href="#home" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-primary transition-colors block"><span className="text-primary">#</span>home</a></li>
             <li><a href="#works" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>works</a></li>
+            <li><a href="#experience" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>experience</a></li>
             <li><a href="#skills" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>skills</a></li>
             <li><a href="#about-me" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>about-me</a></li>
             <li><a href="#contacts" onClick={() => setIsMenuOpen(false)} className="text-gray hover:text-primary transition-colors block"><span className="text-primary">#</span>contacts</a></li>
@@ -172,6 +174,166 @@ function App() {
           </div>
         </section>
 
+        {/* Experience Section */}
+        <section id="experience" className="py-20 bg-[#282C33]">
+          <div className="section-container">
+            <div className="flex items-center gap-4 mb-16">
+              <h2 className="text-3.2xl font-bold flex items-center gap-2 whitespace-nowrap text-white">
+                <span className="text-primary">#</span>experience
+              </h2>
+              <div className="h-[1px] bg-primary flex-1"></div>
+            </div>
+
+            <div className="space-y-12">
+              {[
+                {
+                  role: "Software Developer",
+                  company: "Lido Nation Foundation",
+                  period: "April 2025 – Present",
+                  type: "Operation - Hybrid",
+                  tech: ["PHP", "Laravel", "React JS", "PostgreSQL", "Docker", "Git/GitLab"],
+                  achievements: [
+                    {
+                      title: "Catalyst Explorer",
+                      desc: "Engineered a transaction confirmation module that allows users to verify blockchain transactions in real-time deeping platform transparency."
+                    },
+                    {
+                      title: "1694.io (Governance Tracker)",
+                      desc: "Architected data pipelines to transform unstructured Cardano blockchain data into intuitive dashboards for tracking governance proposals."
+                    },
+                    {
+                      title: "Parameters Explorer",
+                      desc: "Developed a comprehensive classification system for Cardano’s network parameters making complex blockchain settings searchable."
+                    },
+                    {
+                      title: "AdaPay for WooCommerce",
+                      desc: "Extended the functionality of the AdaPay plugin by integrating KES (Kenya Shillings) as a local currency option."
+                    },
+                    {
+                      title: "Lido Impact (Lead Developer)",
+                      desc: "Spearheaded the 'Lido Impact' project, designing a seamless donation workflow for cryptocurrency holders."
+                    },
+                    {
+                      title: "Mentorship & Community",
+                      desc: "Served as a mentor at the Blockchain Centre Nairobi, guiding volunteer developers through blockchain architecture."
+                    }
+                  ]
+                },
+                {
+                  role: "Web Developer",
+                  company: "Blockchain Centre Nairobi",
+                  period: "Jun 2026 – Sept 2026",
+                  type: "Operation - Remote",
+                  tech: ["WordPress", "React"],
+                  achievements: [
+                    {
+                      title: "Digital Infrastructure",
+                      desc: "Collaborated on the development and maintenance of the official organization website."
+                    },
+                    {
+                      title: "Hybrid Architecture",
+                      desc: "Implemented a component-based system merging WordPress with a React-based application layer."
+                    }
+                  ]
+                },
+                {
+                  role: "Software Developer",
+                  company: "Ngong Road Children’s Foundation (NRCF)",
+                  period: "Jan 2025 – April 2025",
+                  type: "Operation - Full time | On Site",
+                  tech: ["PHP", "Laravel", "JavaScript", "WordPress", "Salesforce", "Git/GitHub"],
+                  achievements: [
+                    {
+                      title: "Student Portal Enhancement",
+                      desc: "Refactored the Student Portal to resolve critical bugs and implemented a paginated image gallery for student sponsors."
+                    },
+                    {
+                      title: "System Optimization",
+                      desc: "Conducted routine performance audits and debugging to ensure 99.9% uptime for the organization’s primary web assets."
+                    },
+                    {
+                      title: "Cross-functional Collaboration",
+                      desc: "Partnered with the foundation's mission teams to implement technical solutions that streamlined donor-student communication."
+                    }
+                  ]
+                },
+                {
+                  role: "Software Developer & CTO",
+                  company: "Sigma Africa Accelerate",
+                  period: "Sept 2024 – Feb 2025",
+                  type: "Operation - Remote",
+                  tech: ["Laravel", "React JS", "PostgreSQL", "Vercel", "Git/GitHub"],
+                  achievements: [
+                    {
+                      title: "Tech Innovation",
+                      desc: "Leading the tech innovation behind Sigma Africa by bootstrapping and managing the website."
+                    },
+                    {
+                      title: "Strategic Research",
+                      desc: "Lead the tech research for Sigma’s improvements and advocate for steps to improve the website."
+                    },
+                    {
+                      title: "Feedback Culture",
+                      desc: "Collaborate with team members to come up with the best system for sigma by advocating for an efficient feedback loop."
+                    }
+                  ]
+                }
+              ].map((exp, idx) => (
+                <div key={idx} className="relative pl-8 md:pl-0">
+                  {/* Timeline line */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-primary/20 md:left-1/2 md:-ml-[1px]"></div>
+
+                  <div className={`flex flex-col md:flex-row gap-8 mb-12 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                    {/* Content Card */}
+                    <div className="md:w-1/2 border border-border/20 bg-surface/50 backdrop-blur-sm p-6 relative group hover:border-primary/50 transition-all duration-300">
+                      {/* Timeline Dot */}
+                      <div className="absolute -left-[35px] top-6 w-3 h-3 bg-primary border-4 border-background rounded-full md:left-auto md:top-8 md:right-[-38px] group-hover:scale-125 transition-transform hidden md:block"></div>
+                      {idx % 2 === 0 && <div className="absolute -left-[35px] top-6 w-3 h-3 bg-primary border-4 border-background rounded-full md:right-auto md:left-[-38px] group-hover:scale-125 transition-transform hidden md:block"></div>}
+
+                      <div className="flex flex-col mb-6">
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                          <span className="text-xs text-gray border border-border/10 px-2 py-1">{exp.period}</span>
+                        </div>
+                        <p className="text-primary font-medium mb-1">{exp.company}</p>
+                        <p className="text-xs text-gray">{exp.type}</p>
+                      </div>
+
+                      {exp.tech && (
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {exp.tech.map((t, i) => (
+                            <span key={i} className="text-[10px] text-gray/80 bg-gray/5 px-1.5 py-0.5 border border-border/10">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="space-y-4">
+                        {exp.achievements.map((ach, i) => (
+                          <div key={i} className="relative pl-4">
+                            <div className="absolute left-0 top-2 w-1.5 h-[1px] bg-primary"></div>
+                            <h4 className="text-sm font-bold text-white/90 mb-1">{ach.title}</h4>
+                            <p className="text-xs text-gray leading-relaxed">{ach.desc}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Spacer for timeline */}
+                    <div className="md:w-1/2 md:p-6 hidden md:block">
+                      <div className={`flex flex-col ${idx % 2 === 0 ? 'items-start' : 'items-end'} justify-center h-full`}>
+                        <div className="md:w-2/3 h-px bg-primary/20 relative">
+                          <div className={`absolute top-0 ${idx % 2 === 0 ? 'left-0' : 'right-0'} w-2 h-2 -mt-[3px] bg-primary rotate-45`}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Skills Section */}
         <section id="skills" className="py-20">
           <div className="section-container">
@@ -285,7 +447,7 @@ function App() {
                   My experience ranges from leading technical innovations as CTO at Sigma Africa to driving impactful blockchain projects like "Lido Impact" at Lido Nation. I thrive on problem-solving and am committed to continuous learning, always striving to leverage technology to drive impactful solutions.
                 </p>
                 <div className="flex justify-center md:justify-start">
-                  <a href="/assets/MwangiBrianCV.pdf" download="Brian_Mwangi_CV.pdf">
+                  <a href="/assets/MWANGI-BRIAN-CV.pdf" download="MWANGI-BRIAN-CV.pdf">
                     <button className="border border-primary text-primary px-4 py-2 hover:bg-primary/10 transition-colors cursor-pointer">
                       Download CV
                     </button>

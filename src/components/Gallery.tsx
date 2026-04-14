@@ -56,7 +56,7 @@ const Gallery: React.FC = () => {
 
                 <div className="text-center mb-10 md:mb-16">
                     <p className="text-primary-orange text-sm tracking-[0.2em] uppercase mb-4">
-                        Community
+                        Gallery
                     </p>
 
                     <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-4">

@@ -13,6 +13,14 @@ const projects = [
     },
     {
         id: 2,
+        category: 'Community Initiatives',
+        title: '2connect Initiative',
+        description: 'Connecting individuals with meaningful volunteer opportunities. Build skills. Transform communities.',
+        image: '/assets/2connect.png',
+        link: 'https://github.com/bmwangi-dev/2connect/'
+    },
+    {
+        id: 3,
         category: 'Blockchain',
         title: 'Catalyst Explorer',
         description: "Driving Cardano's ecosystem growth by linking innovative ideas with funding opportunities.",
@@ -20,7 +28,7 @@ const projects = [
         link: 'https://www.catalystexplorer.com/en'
     },
     {
-        id: 3,
+        id: 4,
         category: 'Governance',
         title: '1694.io',
         description: 'An On-Chain Decentralized Governance.',
@@ -28,7 +36,7 @@ const projects = [
         link: 'https://www.1694.io/en'
     },
     {
-        id: 4,
+        id: 5,
         category: 'Tourism & Travel',
         title: 'Bliss Edge Tours & Safaris',
         description: 'A modern website for a leading tour operator in Kenya, showcasing their unique safari experiences.',
@@ -36,7 +44,7 @@ const projects = [
         link: 'https://bliss-edge-tours-safaris.netlify.app/'
     },
     {
-        id: 5,
+        id: 6,
         category: 'Education',
         title: 'Sigma Africa Accelerate',
         description: 'Driving African data innovation through Education and mentorship.',
@@ -44,7 +52,7 @@ const projects = [
         link: 'https://www-sigmaafrica-io.vercel.app/'
     },
     {
-        id: 5,
+        id: 7,
         category: 'Branding & Identity',
         title: 'Portfolio Websites',
         description: 'Showcasing unique personal brands through tailored portfolio websites.',
@@ -117,7 +125,7 @@ const Work: React.FC = () => {
                                         href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-block px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm border border-primary-orange text-primary-orange rounded-full bg-primary-orange text-black transition"
+                                        className="inline-block px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm border border-primary-orange rounded-full bg-primary-orange text-black transition"
                                     >
                                         View Project
                                     </a>

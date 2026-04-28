@@ -1,40 +1,51 @@
-/* index.css - Global styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+/* app.css — Professional Engineering Portfolio */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         background-color: #0a0a0a;
         color: #f5f5f5;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 17px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
     }
 }
 
 @layer components {
-    .glass-nav {
-        background: rgba(10, 10, 10, 0.8);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .bento-card {
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow: hidden;
-    }
-
-    .bento-card:hover {
-        transform: translateY(-4px);
-    }
-
-    .card-image {
-        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Navigation */
+    .nav-fixed {
+        background-color: rgba(10, 10, 10, 0.97);
+        border-bottom: 1px solid #1f1f1f;
+        backdrop-filter: blur(4px);
     }
 
     .nav-link {
         position: relative;
+        color: #737373;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+        color: #f5f5f5;
     }
 
     .nav-link::after {
@@ -42,16 +53,109 @@
         position: absolute;
         width: 0;
         height: 1px;
-        bottom: -2px;
+        bottom: -3px;
         left: 0;
-        background-color: #f5f5f5;
-        transition: width 0.3s ease;
+        background-color: #fd802e;
+        transition: width 0.25s ease;
     }
 
     .nav-link:hover::after {
         width: 100%;
     }
 
+    /* Section labels */
+    .section-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #fd802e;
+    }
+
+    /* Section divider */
+    .section-divider {
+        border: none;
+        border-top: 1px solid #1f1f1f;
+    }
+
+    /* Project card */
+    .project-card {
+        border: 1px solid #1f1f1f;
+        background-color: #141414;
+        transition: border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+        border-color: #2e2e2e;
+    }
+
+    /* Tech tag */
+    .tech-tag {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: #737373;
+        background-color: #1a1a1a;
+        border: 1px solid #262626;
+        padding: 0.25rem 0.7rem;
+        border-radius: 3px;
+    }
+
+    /* Experience timeline */
+    .timeline-entry {
+        position: relative;
+        padding-left: 1.75rem;
+        border-left: 1px solid #262626;
+    }
+
+    .timeline-entry.active-entry {
+        border-left-color: #fd802e;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -5px;
+        top: 6px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: #fd802e;
+        border: 2px solid #0a0a0a;
+    }
+
+    .timeline-dot-inactive {
+        position: absolute;
+        left: -5px;
+        top: 6px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: #262626;
+        border: 2px solid #0a0a0a;
+    }
+
+    /* Contact action row */
+    .contact-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        border-bottom: 1px solid #1f1f1f;
+        transition: border-color 0.2s ease;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .contact-row:first-child {
+        border-top: 1px solid #1f1f1f;
+    }
+
+    .contact-row:hover {
+        border-bottom-color: #fd802e;
+    }
+
+    /* Utility */
     .hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -64,37 +168,21 @@
 
 @layer utilities {
     .animate-slide-up {
-        animation: slideUp 0.8s ease-out forwards;
+        animation: slideUp 0.6s ease-out forwards;
     }
 
     @keyframes slideUp {
         0% {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
-
         100% {
             opacity: 1;
             transform: translateY(0);
         }
     }
 
-    /* Auto-scroll animation for carousels */
-    @keyframes autoScroll {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
-    }
-
-    .auto-scroll {
-        animation: autoScroll 30s linear infinite;
-    }
-
-    .auto-scroll:hover {
-        animation-play-state: paused;
+    .text-balance {
+        text-wrap: balance;
     }
 }

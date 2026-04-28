@@ -1,58 +1,113 @@
 // components/About.tsx
-import React from 'react';
+import React from "react";
+
+const values = [
+  {
+    label: "Systems Thinking",
+    desc: "I reason about architecture before touching code.",
+  },
+  {
+    label: "Clean Code",
+    desc: "Readable, testable, maintainable — by default.",
+  },
+  {
+    label: "Community First",
+    desc: "Great engineers lift the people around them.",
+  },
+];
 
 const About: React.FC = () => {
-    return (
-        <section id="about" className="py-32 bg-secondary/30">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="relative">
-                        <div className="aspect-[4/5] rounded-3xl overflow-hidden">
-                            <img
-                                src="/assets/mwangi2.jpg"
-                                alt="Your Portrait"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                            />
-                        </div>
-                        <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-highlight/10 rounded-3xl -z-10"></div>
-                        <div className="absolute -top-6 -left-6 w-32 h-32 border border-highlight/30 rounded-3xl -z-10"></div>
-                    </div>
-
-                    <div>
-                        <p className="text-primary-orange text-sm tracking-[0.2em] uppercase mb-4">About Me</p>
-                        <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">Design-Driven<br />Developer</h2>
-                        <div className="space-y-4 text-muted leading-relaxed">
-                            <p>
-                                With over 2 years of experience in digital product design and development,
-                                I bridge the gap between aesthetics and functionality. My approach combines
-                                strategic thinking with meticulous attention to detail.
-                            </p>
-                            <p>
-                                I believe that great design is invisible, it just works. Whether I'm crafting
-                                a brand identity or building a complex web application, my goal remains the
-                                same: creating meaningful experiences that resonate with users.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-border">
-                            <div>
-                                <p className="font-serif text-3xl font-bold text-accent">10+</p>
-                                <p className="text-sm text-muted mt-1">Projects Completed</p>
-                            </div>
-                            <div>
-                                <p className="font-serif text-3xl font-bold text-accent">7+</p>
-                                <p className="text-sm text-muted mt-1">Happy Clients</p>
-                            </div>
-                            <div>
-                                <p className="font-serif text-3xl font-bold text-accent">2+</p>
-                                <p className="text-sm text-muted mt-1">Years Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <section id="about" className="py-24 lg:py-32 border-b border-border">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left col — headshot + quick facts */}
+          <div>
+            <div className="flex items-start gap-5 mb-10">
+              <img
+                src="/assets/mwangi1.jpg"
+                alt="Mwangi Brian"
+                className="w-20 h-20 rounded-lg object-cover object-top flex-shrink-0 border border-border"
+              />
+              <div>
+                <h2 className="text-xl font-bold text-accent">Mwangi Brian</h2>
+                <p className="text-sm text-muted mt-0.5">
+                  Software Engineer · Nairobi, Kenya
+                </p>
+                <p className="text-sm text-primary-orange mt-1 font-medium">
+                  Lido Nation Foundation
+                </p>
+              </div>
             </div>
-        </section>
-    );
+
+            {/* Values */}
+            <p className="section-label mb-6">Principles</p>
+            <div className="space-y-5">
+              {values.map((v, i) => (
+                <div key={i} className="flex gap-4">
+                  <span className="mt-0.5 w-1 h-1 rounded-full bg-primary-orange flex-shrink-0 mt-2"></span>
+                  <div>
+                    <p className="text-sm font-semibold text-accent">
+                      {v.label}
+                    </p>
+                    <p className="text-sm text-muted mt-0.5">{v.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right col — editorial bio */}
+          <div>
+            <p className="section-label mb-8">About</p>
+            <div className="space-y-5 text-muted text-base leading-relaxed">
+              <p>
+                I am a software engineer with over two and half years of
+                experience building production systems across blockchain
+                infrastructure, nonprofit platforms, and data-driven web
+                applications. My work spans the full backend stack — from schema
+                design and API architecture to deployment pipelines and
+                performance auditing.
+              </p>
+              <p>
+                Currently at{" "}
+                <span className="text-accent font-medium">
+                  Lido Nation Foundation
+                </span>
+                , I engineer data pipelines and explorer tools that make
+                Cardano's governance and funding ecosystem accessible to
+                thousands of users. I've shipped features across Catalyst
+                Explorer, 1694.io, and the Parameters Explorer — translating raw
+                blockchain data into decision-ready interfaces.
+              </p>
+              <p>
+                Beyond product work, I operate as a technical entity of my own —
+                contributing to open source, mentoring junior developers through
+                the Blockchain Centre Nairobi, and building community
+                infrastructure that outlasts any single project. I believe the
+                best engineers don't just ship code; they make the teams and
+                ecosystems around them stronger.
+              </p>
+            </div>
+
+            {/* Metrics */}
+            <div className="grid grid-cols-3 gap-6 mt-12 pt-10 border-t border-border">
+              {[
+                { n: "10+", l: "Projects Shipped" },
+                { n: "2+", l: "Years of Practice" },
+                { n: "10+", l: "Developers Mentored" },
+              ].map((m) => (
+                <div key={m.l}>
+                  <p className="text-2xl font-bold text-accent">{m.n}</p>
+                  <p className="text-xs text-muted mt-1">{m.l}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

@@ -1,167 +1,160 @@
 // components/Work.tsx
-import ExperienceSidebar from "./ExperienceSidebar";
-import { useState } from "react";
+import React from "react";
 
 const projects = [
-    {
-        id: 1,
-        category: 'Community',
-        title: 'Blockchain Centre NBO',
-        description: 'Connecting Web3 and Web2 communities in one inclusive space.',
-        image: '/assets/blockchaincentre.png',
-        link: 'https://www.blockchaincentrenbo.com/'
-    },
-    {
-        id: 2,
-        category: 'Community Initiatives',
-        title: '2connect Initiative',
-        description: 'Connecting individuals with meaningful volunteer opportunities. Build skills. Transform communities.',
-        image: '/assets/2connect.png',
-        link: 'https://github.com/bmwangi-dev/2connect/'
-    },
-    {
-        id: 3,
-        category: 'Blockchain',
-        title: 'Catalyst Explorer',
-        description: "Driving Cardano's ecosystem growth by linking innovative ideas with funding opportunities.",
-        image: '/assets/catalystexplorer.png',
-        link: 'https://www.catalystexplorer.com/en'
-    },
-    {
-        id: 4,
-        category: 'Governance',
-        title: '1694.io',
-        description: 'An On-Chain Decentralized Governance.',
-        image: '/assets/1694.io.png',
-        link: 'https://www.1694.io/en'
-    },
-    {
-        id: 5,
-        category: 'Tourism & Travel',
-        title: 'Bliss Edge Tours & Safaris',
-        description: 'A modern website for a leading tour operator in Kenya, showcasing their unique safari experiences.',
-        image: '/assets/blisstours.png',
-        link: 'https://bliss-edge-tours-safaris.netlify.app/'
-    },
-    {
-        id: 6,
-        category: 'Education',
-        title: 'Sigma Africa Accelerate',
-        description: 'Driving African data innovation through Education and mentorship.',
-        image: '/assets/sigmaafrica.png',
-        link: 'https://www-sigmaafrica-io.vercel.app/'
-    },
-    {
-        id: 7,
-        category: 'Branding & Identity',
-        title: 'Portfolio Websites',
-        description: 'Showcasing unique personal brands through tailored portfolio websites.',
-        image: '/assets/portfoliowebsite.png',
-        link: 'https://mwangi-brian.netlify.app/'
-    },
+  {
+    id: 1,
+    category: "Blockchain Infrastructure",
+    title: "Catalyst Explorer",
+    description:
+      "Engineered a transaction confirmation module enabling real-time blockchain verification, deepening platform transparency for Cardano's funding ecosystem.",
+    tech: ["Laravel", "React", "PostgreSQL"],
+    link: "https://www.catalystexplorer.com/en",
+    image: "/assets/catalystexplorer.png",
+  },
+  {
+    id: 2,
+    category: "Governance",
+    title: "1694.io",
+    description:
+      "Architected data pipelines to transform unstructured Cardano blockchain data into intuitive dashboards tracking on-chain governance proposals.",
+    tech: ["PHP", "Laravel", "PostgreSQL", "React"],
+    link: "https://www.1694.io/en",
+    image: "/assets/1694.io.png",
+  },
+  {
+    id: 3,
+    category: "Community Platform",
+    title: "Blockchain Centre NBO",
+    description:
+      "Built and maintained the digital infrastructure for Nairobi's leading blockchain community hub, implementing a hybrid WordPress + React architecture.",
+    tech: ["WordPress", "React"],
+    link: "https://www.blockchaincentrenbo.com/",
+    image: "/assets/blockchaincentre.png",
+  },
+  {
+    id: 4,
+    category: "Social Connection",
+    title: "2connect Initiative",
+    description:
+      "Designed and developed a volunteer-matching platform connecting individuals with community opportunities — skills-first, community-driven.",
+    tech: ["React", "TypeScript"],
+    link: "https://github.com/bmwangi-dev/2connect/",
+    image: "/assets/2connect.png",
+  },
+  {
+    id: 5,
+    category: "Tourism & Travel",
+    title: "Bliss Edge Tours & Safaris",
+    description:
+      "Delivered a modern, performant website for a leading Kenyan tour operator — responsive, fast, and conversion-optimised.",
+    tech: ["HTML/CSS", "JavaScript"],
+    link: "https://bliss-edge-tours-safaris.netlify.app/",
+    image: "/assets/blisstours.png",
+  },
+  {
+    id: 6,
+    category: "Education & Mentorship",
+    title: "Sigma Africa Accelerate",
+    description:
+      "Served as CTO, bootstrapping the platform from zero — managing architecture, deployment, and technical strategy for an African data innovation accelerator.",
+    tech: ["Laravel", "React", "PostgreSQL", "Vercel"],
+    link: "https://www-sigmaafrica-io.vercel.app/",
+    image: "/assets/sigmaafrica.png",
+  },
+  {
+    id: 7,
+    category: "Branding",
+    title: "Portfolio Websites",
+    description:
+      "Designed and developed tailored portfolio sites for professionals, translating personal brands into polished, performant digital identities.",
+    tech: ["React", "Vite", "Tailwind"],
+    link: "https://mwangi-brian.netlify.app/",
+    image: "/assets/portfoliowebsite.png",
+  },
 ];
 
-const duplicatedProjects = [...projects, ...projects];
-
 const Work: React.FC = () => {
+  return (
+    <section id="work" className="py-24 lg:py-32 border-b border-border">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-4">
+          <div>
+            <p className="section-label mb-3">Selected Work</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent tracking-tight">
+              Projects I've Shipped
+            </h2>
+          </div>
+          <p className="text-sm text-muted max-w-sm leading-relaxed md:text-right">
+            Production systems across blockchain, governance, community, and
+            education.
+          </p>
+        </div>
 
-    const [openExperience, setOpenExperience] = useState(false);
+        {/* Project grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-px bg-border">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="project-card bg-primary group flex flex-col"
+            >
+              {/* Thumbnail */}
+              <div className="aspect-video overflow-hidden bg-surface">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
 
-    return (
-        <section id="work" className="py-16 md:py-32 relative overflow-hidden">
-            <div className="max-w-[95%] mx-auto px-6 lg:px-8">
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-1">
+                <p className="section-label mb-2">{project.category}</p>
+                <h3 className="text-base font-bold text-accent mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted leading-relaxed mb-5 flex-1">
+                  {project.description}
+                </p>
 
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-16">
-                    <div>
-                        <p className="text-primary-orange text-sm tracking-[0.2em] uppercase mb-4">
-                            Selected Works
-                        </p>
-
-                        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold">
-                            It's not Just Talk.
-                        </h2>
-
-                        <p className="text-muted text-base md:text-lg mt-2">Here's the proof.</p>
-                    </div>
-
-                    <button
-                        onClick={() => setOpenExperience(true)}
-                        className="mt-6 md:mt-0 border border-primary-orange text-primary-orange px-5 py-2.5 md:px-6 md:py-3 rounded-full hover:bg-primary-orange hover:text-black transition text-sm md:text-base"
-                    >
-                        Experience Timeline
-                    </button>
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {project.tech.map((t) => (
+                    <span key={t} className="tech-tag">
+                      {t}
+                    </span>
+                  ))}
                 </div>
 
-                <div className="carousel-track flex gap-6">
-
-                    {duplicatedProjects.map((project, index) => (
-                        <div key={`${project.id}-${index}`} className="flex-none w-[85vw] md:w-[45vw] lg:w-[30vw]">
-
-                            <div className="bento-card bg-surface rounded-2xl md:rounded-3xl overflow-hidden border border-border h-[400px] md:h-[500px] relative group">
-
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-
-                                <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 z-20">
-
-                                    <span className="text-primary-orange text-xs tracking-widest uppercase mb-2 block">
-                                        {project.category}
-                                    </span>
-
-                                    <h3 className="font-serif text-xl md:text-2xl font-bold mb-2">
-                                        {project.title}
-                                    </h3>
-
-                                    <p className="text-muted text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
-                                        {project.description}
-                                    </p>
-
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-block px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm border border-primary-orange rounded-full bg-primary-orange text-black transition"
-                                    >
-                                        View Project
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    ))}
-
-                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-primary-orange transition-colors duration-200 group/link"
+                >
+                  View Live
+                  <svg
+                    className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
-
-            <style>{`
-                .carousel-track{
-                    width:max-content;
-                    animation:scrollLeft 60s linear infinite;
-                }
-
-                @keyframes scrollLeft{
-                    from{
-                        transform:translateX(0);
-                    }
-                    to{
-                        transform:translateX(-50%);
-                    }
-                }
-            `}</style>
-
-            <ExperienceSidebar
-                isOpen={openExperience}
-                onClose={() => setOpenExperience(false)}
-            />
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Work;

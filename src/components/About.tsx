@@ -25,7 +25,7 @@ const About: React.FC = () => {
           <div>
             <div className="flex items-start gap-5 mb-10">
               <img
-                src="/assets/mwangi1.jpg"
+                src="/assets/mwangi1.webp"
                 alt="Mwangi Brian"
                 className="w-20 h-20 rounded-lg object-cover object-top flex-shrink-0 border border-border"
               />

@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
 
               <div className="w-[400px] xl:w-[460px] aspect-[4/5] overflow-hidden rounded-lg border border-border">
                 <img
-                  src="/assets/mwangi1.jpg"
+                  src="/assets/mwangi1.webp"
                   alt="Mwangi Brian — Software Engineer"
                   className="w-full h-full object-cover object-top"
                 />

@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
                     {/* Logo */}
                     <a href="#home" className="flex items-center hover:opacity-75 transition-opacity duration-200">
                         <img
-                            src="/assets/mwangi_logo.png"
+                            src="/assets/mwangi_logo.webp"
                             alt="Mwangi Brian"
                             className="h-8 w-auto object-contain"
                         />

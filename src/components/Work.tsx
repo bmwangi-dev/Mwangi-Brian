@@ -10,7 +10,7 @@ const projects = [
       "Engineered a transaction confirmation module enabling real-time blockchain verification, deepening platform transparency for Cardano's funding ecosystem.",
     tech: ["Laravel", "React", "PostgreSQL"],
     link: "https://www.catalystexplorer.com/en",
-    image: "/assets/catalystexplorer.png",
+    image: "/assets/catalystexplorer.webp",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const projects = [
       "Architected data pipelines to transform unstructured Cardano blockchain data into intuitive dashboards tracking on-chain governance proposals.",
     tech: ["PHP", "Laravel", "PostgreSQL", "React"],
     link: "https://www.1694.io/en",
-    image: "/assets/1694.io.png",
+    image: "/assets/1694.io.webp",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const projects = [
       "Built and maintained the digital infrastructure for Nairobi's leading blockchain community hub, implementing a hybrid WordPress + React architecture.",
     tech: ["WordPress", "React"],
     link: "https://www.blockchaincentrenbo.com/",
-    image: "/assets/blockchaincentre.png",
+    image: "/assets/blockchaincentre.webp",
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const projects = [
       "Designed and developed a volunteer-matching platform connecting individuals with community opportunities — skills-first, community-driven.",
     tech: ["React", "TypeScript"],
     link: "https://github.com/bmwangi-dev/2connect/",
-    image: "/assets/2connect.png",
+    image: "/assets/2connect.webp",
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const projects = [
       "Delivered a modern, performant website for a leading Kenyan tour operator — responsive, fast, and conversion-optimised.",
     tech: ["HTML/CSS", "JavaScript"],
     link: "https://bliss-edge-tours-safaris.netlify.app/",
-    image: "/assets/blisstours.png",
+    image: "/assets/blisstours.webp",
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const projects = [
       "Served as CTO, bootstrapping the platform from zero — managing architecture, deployment, and technical strategy for an African data innovation accelerator.",
     tech: ["Laravel", "React", "PostgreSQL", "Vercel"],
     link: "https://www-sigmaafrica-io.vercel.app/",
-    image: "/assets/sigmaafrica.png",
+    image: "/assets/sigmaafrica.webp",
   },
   {
     id: 7,
@@ -70,7 +70,7 @@ const projects = [
       "Designed and developed tailored portfolio sites for professionals, translating personal brands into polished, performant digital identities.",
     tech: ["React", "Vite", "Tailwind"],
     link: "https://mwangi-brian.netlify.app/",
-    image: "/assets/portfoliowebsite.png",
+    image: "/assets/portfoliowebsite.webp",
   },
 ];
 

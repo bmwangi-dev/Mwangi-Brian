@@ -62,7 +62,7 @@ const About: React.FC = () => {
             <p className="section-label mb-8">About</p>
             <div className="space-y-5 text-muted text-base leading-relaxed">
               <p>
-                I am a software engineer with over two and half years of
+                I am a software engineer with over four and half years of
                 experience building production systems across blockchain
                 infrastructure, nonprofit platforms, and data-driven web
                 applications. My work spans the full backend stack — from schema
@@ -94,8 +94,8 @@ const About: React.FC = () => {
             <div className="grid grid-cols-3 gap-6 mt-12 pt-10 border-t border-border">
               {[
                 { n: "10+", l: "Projects Shipped" },
-                { n: "2+", l: "Years of Practice" },
-                { n: "10+", l: "Developers Mentored" },
+                { n: "25+", l: "Years of Practice" },
+                { n: "12+", l: "Developers Mentored" },
               ].map((m) => (
                 <div key={m.l}>
                   <p className="text-2xl font-bold text-accent">{m.n}</p>

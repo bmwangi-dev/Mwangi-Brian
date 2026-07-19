@@ -2,9 +2,9 @@
 import React from "react";
 
 const stats = [
-  { value: "2+", label: "Years Building" },
+  { value: "4+", label: "Years Building" },
   { value: "10+", label: "Projects Shipped" },
-  { value: "10+", label: "Developers Mentored" },
+  { value: "12+", label: "Developers Mentored" },
 ];
 
 const Hero: React.FC = () => {
